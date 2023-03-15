@@ -1,0 +1,18 @@
+<div class="pageContainer" [ngClass]="{
+                  'freeze': isConsoleOpen}">
+   <div class="header">
+      <span id="dropinHeader">Dropin /sessions</span>
+   </div>
+   <div id="payment-page">
+      <div class="container">
+         <div class="payment-container">
+            <div id="dropin-container" class="payment"></div>
+         </div>
+      </div>
+   </div>
+</div>
+<app-buttonrow [componentName]="'DropinSessionsComponent'"
+               [redirectTo]="'/dropin'"
+               [backgroundColor]="'white'"></app-buttonrow>
+<app-old-console [request]="consoleRequest" [response]="consoleResponse" (consoleOpen)="handleConsoleStatus($event)"></app-old-console>
+

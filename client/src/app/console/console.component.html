@@ -1,0 +1,33 @@
+<div class="topBar">
+   <div class="btnStyle consoleBtn reqButton" (click)="changeSelectedTab(requestEnum)"
+        style="background-color:{{selectedTab === requestEnum ? '#00112c' : '#00235B'}}">Request
+   </div>
+   <div class="btnStyle consoleBtn resButton" (click)="changeSelectedTab(responseEnum)"
+        style="background-color:{{selectedTab === responseEnum ? '#00112c' : '#00235B'}}">Response
+   </div>
+   <div class="menuBar" *ngIf="isMenuBarVisible">
+      <div class="menuButton" (click)="resetRequestJson()" title="Reset JSON" *ngIf="isMenuBarVisible">
+         <img id="resetRequestJsonIcon" src="../../assets/icons8-reset-48.png">
+      </div>
+      <div class="menuButton" (click)="autofillMerchantAccount()" title="Autofill merchant account"
+           *ngIf="showMerchantAccountAutofillButton && isMenuBarVisible">
+         <img id="autoFillMerchantAccIcon" src="../../assets/icons8-alternate-48.png">
+      </div>
+      <app-search-bar-table class="predefinedPaymentMethodDropDown"
+                            *ngIf="isMenuBarVisible && showAdditionalDropDown"
+                            (newValueEvent)="changeAdditionalDropDownValue($event)"
+                            [allValues]="additionDropDownValues"
+                            [selectedValue]="selectedDropDownValue"
+                            [inputTextColor]="'white'">
+      </app-search-bar-table>
+   </div>
+</div>
+<div class="textarea">
+   <app-code-editor class="codeEditor"
+                    [mode]="'json'"
+                    [value]="getEditorValue()"
+                    [readonly]="getEditorReadOnlyValue()"
+                    (onEditorValueChanged)="handleEditorInput($event)"
+                    ngDefaultControl
+   ></app-code-editor>
+</div>

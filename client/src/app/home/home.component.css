@@ -1,0 +1,58 @@
+.homeBtnStyle {
+    position: initial;
+    width: 350px;
+    height: 70px;
+    transition: box-shadow 0.1s ease-out 0ms
+}
+
+.homeBtnStyle:hover {
+    box-shadow: #ffffff 0 0 0 3px, transparent 0 0 0 0;
+}
+
+.btnContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 25;
+}
+
+.btnAlign {
+    margin: 20px;
+    display: block;
+}
+
+.settings {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    z-index: 99;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+#wheel {
+    width: 50px;
+}
+
+#wheel:hover {
+    cursor: pointer;
+    transform: rotate(180deg);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+#svg {
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+
+
+
+

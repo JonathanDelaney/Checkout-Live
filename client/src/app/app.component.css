@@ -1,0 +1,21 @@
+.settings {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  z-index: 99;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+
+#wheel {
+  width: 50px;
+}
+
+#wheel:hover {
+  cursor: pointer;
+  transform: rotate(180deg);
+  transition: all 0.3s ease-in-out 0s;
+}

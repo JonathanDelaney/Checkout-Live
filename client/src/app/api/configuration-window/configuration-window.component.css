@@ -1,0 +1,370 @@
+.rightWindow {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    right: 0;
+    z-index: 25;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 10px;
+    background-color: #00112c;
+}
+
+.leftWindow {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 0;
+    z-index: 25;
+    background-color: #00112c;
+    border-right: 1px solid #313335;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.rightBar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.pblTextarea {
+    position: absolute;
+    /* right: 0; */
+    /* bottom: 0; */
+    width: 100%;
+    /* height: calc(100vh - 58px); */
+    height: 100%;
+    /* min-width: 500px; */
+    background-color: #00112c;
+    color: white;
+    padding: 30px;
+    overflow: auto;
+    -webkit-user-select: none;
+    user-select: none;
+    border: none;
+    /* z-index: -1; */
+    outline: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    resize: none;
+}
+
+.submitBtnStyle {
+    align-items: center;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+    box-sizing: border-box;
+    /*background-image: linear-gradient(92.88deg, #20c79c 9.16%, #1ad5a4 43.89%, #10e7ae 64.72%);*/
+    background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+    color: white;
+    cursor: pointer;
+    display: inline-flex;
+    flex: 1 1 auto;
+    font-family: Inter,sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 1;
+    margin: 0;
+    outline: none;
+    padding: 1rem 1.2rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s,-webkit-box-shadow .2s;
+    white-space: nowrap;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.submitBtnStyle:hover {
+    /*border: 3px solid black;*/
+    box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+}
+
+#searchBarBody {
+    position: absolute;
+    width: 100%;
+    z-index: 9;
+    top: 90px;
+    padding-left: 20px;
+    padding-right: 20px
+}
+
+.text-sm {
+    font-size: 1.1rem;
+    line-height: 1.45rem;
+}
+
+.searchBarTable {
+    z-index: 12;
+    position: relative;
+    width: 100%;
+    background-color: white;
+    /*box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;*/
+    box-shadow: 0 2px 7px rgb(0 15 45 / 30%);
+    max-height: 150px;
+    overflow: auto;
+    border-radius: 6px;
+}
+
+#table {
+    width: 100%;
+    padding: 0;
+    z-index: 11;
+    display: block;
+    margin: 0;
+}
+
+#tableDiv {
+    z-index: 11;
+}
+
+.searchBarTableEntry {
+    z-index: 11;
+    width: 100%;
+    height: 25px;
+    list-style: none;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.searchBarTableEntry:hover {
+    z-index: 11;
+    background-color: #efefef;
+}
+
+.configurationBox {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 10px 10px;
+    width: 100%;
+    height: 100vh;
+    padding-top: 160px;
+    padding-bottom: 200px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.checkbox_container {
+    position: relative;
+    display: block;
+
+}
+
+.checkbox_input {
+    position: absolute;
+}
+
+.checkbox_label {
+    color: black;
+    display: flex;
+    font-size: .81em;
+    font-weight: 400;
+    line-height: 19px;
+    padding-left: 24px;
+    -webkit-user-select: none;
+}
+
+.checkboxStyle:hover {
+    cursor: pointer;
+}
+
+.header {
+    text-align: center;
+    /*position: absolute;*/
+    left: 0;
+    right: 0;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    /*border-bottom: 1px solid dimgrey;*/
+    /*padding-bottom: 20px;*/
+}
+
+.configHeader {
+    color: white;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.json-key {
+    color: blue;
+    margin-left: 8px;
+    font-family: monospace;
+}
+
+.value {
+    font-family: monospace;
+}
+
+.prettyJsonBox {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    /* height: calc(100vh - 54px); */
+    /* min-width: 500px; */
+    background-color: #00112c;
+    padding: 30px;
+    overflow: auto;
+    border: none;
+    outline: none;
+    margin: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.fullScreenLayer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    backdrop-filter: blur(5px);
+    z-index: 28;
+}
+
+.popup {
+    position: absolute;
+    min-width: 400px;
+    min-height: 530px;
+    width: 80%;
+    height: 80%;
+    background-color: #ffffff;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 10px;
+    /*box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;*/
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: auto;
+    z-index: 30;
+}
+
+.jsonStyle {
+    font-family: menlo, consolas, monospace;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1.4em;
+    font-size: 0.9rem;
+}
+
+#closeButton {
+    z-index: 25;
+    position: absolute;
+    right: 0px;
+    padding: 10px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    margin: 15px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    top: 3px;
+}
+
+#closeButtonIcon {
+    -webkit-filter: brightness(0) invert(1);
+}
+
+#closeButton:hover {
+    cursor: pointer;
+    background-color: #001d4d;
+}
+
+.saveJSON {
+    z-index: 26;
+    position: initial;
+    margin-top: 10px;
+    width: 220px;
+    height: 40px;
+}
+
+.saveJSON:hover {
+    box-shadow: #ffffff 0 0 0 3px, transparent 0 0 0 0;
+}
+
+.buttonContainer {
+    position: absolute;
+    display: grid;
+    bottom: 40px;
+    right: 30px;
+    z-index: 25;
+}
+
+.codeEditor {
+    position: absolute;
+    padding-bottom: 40px;
+}
+
+.relative {
+    position: relative;
+}
+
+.codeContainer {
+    padding-left: 30px;
+}
+
+.textarea {
+    height: calc(100% - 76px);;
+    width: 100%;
+    background-color: #00112c;
+    overflow: auto;
+    position: absolute;
+    padding-left: 20px;
+}
+
+.textarea::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+.textarea::-webkit-scrollbar-track {
+    background-color: #00112c;
+}
+.textarea::-webkit-scrollbar-thumb {
+    background-color: white ;
+    border-radius: 20px;
+    border: 3px solid #00112c;
+}
+
+.textarea::-webkit-scrollbar-corner {
+    background: rgba(0,0,0,0);
+}
+
+.menuButton {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    justify-content: center;
+    position: absolute;
+    left: 20px;
+    /* top: 25px; */
+    top: 13px;
+}
+
+.menuButton:hover {
+    cursor: pointer;
+    background-color: #001d4d;
+}
+
+.dropinInstanceDocLink {
+    -webkit-filter: brightness(0) invert(1);
+    transform: scale(1.5, 1.5);
+    -webkit-user-select: none;
+    user-select: none;
+    height: 20px;
+    /* margin-right: 60px; */
+}

@@ -1,0 +1,44 @@
+<div class="fullScreenLayer" (click)="closePopup($event)">
+</div>
+<div class="popup">
+   <div id="closeButton" (click)="closePopup()">
+      <p id="closeButtonIcon">&#x2715;</p>
+   </div>
+   <div class="pageContainer">
+      <div class="header">
+         <span id="dropinHeader">Dropin {{endpoint}}</span>
+      </div>
+      <div id="payment-page" *ngIf="showPaymentPage">
+         <div class="container">
+            <div class="payment-container">
+               <div id="dropin-container" class="payment"></div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="threeDSChallenge">
+      <iframe name="challengeIframe" class="myIframe" frameBorder="0" [hidden]="!showChallengeIframe"></iframe>
+      <form class="" id="challengeForm">
+         <input type="hidden"
+                name="creq"
+                id="creq"/>
+      </form>
+   </div>
+   <div class="threeDSIdentify">
+      <div class="challengeButtonContainer" *ngIf="showChallengeShopperSubmitButton">
+         <button id="showChallengeShopperSubmitButton"
+                 (click)="challengeShopper()">Challenge Shopper
+         </button>
+      </div>
+
+      <iframe name="threeDSMethodIframe" class="hidden"></iframe>
+      <form class="" id="threeDSMethodForm">
+         <input type="hidden" name="threeDSMethodData" id="threeDSMethodData"/>
+      </form>
+   </div>
+   <div class="adyenCheckoutStatusPage" *ngIf="showAdyenCheckoutStatusPage">
+      <img class="checkoutStatusIcon" src="{{checkoutStatusIconSrc}}">
+      <span class="checkoutStatusText">{{paymentResultText}}</span>
+   </div>
+</div>

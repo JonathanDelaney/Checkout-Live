@@ -1,0 +1,243 @@
+.btnStyle {
+  align-items: center;
+  /*background-color: #00112c;*/
+  background: transparent;
+  color: #ffffff;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-family: Inter,sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 50%;
+}
+
+.btnStyle:hover {
+  cursor: pointer;
+  border-bottom: 3px solid white;
+}
+
+.leftWindow {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+}
+
+.rightWindow {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  right: 0;
+}
+
+.parentWindow {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  min-width: 1000px;
+}
+
+
+
+.leftBar {
+  position: absolute;
+  width: 50%;
+  /*background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);*/
+  background-color: #00112c;
+  z-index: 2;
+}
+
+.rightBar {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  background-color: #00112c;
+}
+
+.pblTextarea {
+  position: initial;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(100vh - 58px);;
+  min-width: 500px;
+  /*max-width: 800px;*/
+  background-color: #00112c;
+  color: white;
+  padding: 30px;
+  overflow: hidden;
+  resize: none;
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  border: none;
+  z-index: -1;
+  padding-top: 70px;
+  outline: none;
+}
+
+.parameters {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding-top: 180px;
+}
+
+.leftBarParamGroup {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 100vh;
+}
+
+.grid {
+  display: grid;
+  left: 25%;
+  position: absolute;
+  overflow-y: auto;
+  width: 50%;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.block {
+  display: block;
+}
+
+.text-sm {
+  font-size: .875rem;
+  line-height: 1.25rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.text-gray-900 {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39/var(--tw-text-opacity));
+}
+
+.bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251/var(--tw-bg-opacity));
+}
+
+.border {
+  border-width: 1px;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219/var(--tw-border-opacity));
+
+}
+
+.inputFields {
+  width: 100%;
+  padding: 10px;
+}
+
+.inputLabels {
+  position: initial;
+}
+
+.submitBtnStyle {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+  box-sizing: border-box;
+  /*background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);*/
+  background-color: #3b5998;
+  color: white;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-family: Inter,sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s,-webkit-box-shadow .2s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+.submitBtnStyle:hover {
+  /*border: 3px solid black;*/
+  box-shadow: 0px 0px 26px -10px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 0px 26px -10px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 26px -10px rgba(0,0,0,0.75);
+}
+
+.selectedTabLabel {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 10vh;
+  margin-top: 80px;
+  text-align: center;
+  font-family: Inter,sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+}
+
+.prettyJsonBox {
+  position: initial;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(100vh - 54px);
+  min-width: 500px;
+  /*max-width: 800px;*/
+  background-color: #00112c;
+  padding: 30px;
+  overflow: auto;
+  border: none;
+  z-index: -1;
+  padding-top: 70px;
+  outline: none;
+  margin: 0;
+}
+
+.jsonStyle {
+  font-family: menlo, consolas, monospace;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 1.4em;
+  font-size: 0.9rem;
+}

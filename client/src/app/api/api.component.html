@@ -1,0 +1,137 @@
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div>
+   <div class="leftWindows">
+      <div id="apiHeader">
+         <img id="headerImg" src="../../assets/adyen_API_logo.png">
+      </div>
+      <div id="searchBarBody">
+         <div class="selectionContainer">
+            <app-search-bar-table class="endpointDropDown"
+                                  (newValueEvent)="changeSelectedEndpoint($event)"
+                                  [allValues]="getEndpoints()"
+                                  [selectedValue]="selectedEndpoint">
+            </app-search-bar-table>
+            <select class="versionDropdown sdkversion" #mySelectSDK
+                    (change)="changeSelectedSDKVersion(mySelectSDK.value)">
+               <option *ngFor="let version of getAvailableSDKVersions()" [selected]="version === selectedSDKVersion">
+                  {{version}}
+               </option>
+            </select>
+            <select class="versionDropdown" #mySelect
+                    (change)="changeSelectedCheckoutVersion(mySelect.value)">
+               <option *ngFor="let version of getAvailableVersions()" [selected]="version === selectedCheckoutVersion">
+                  {{version}}
+               </option>
+            </select>
+         </div>
+      </div>
+      <div class="configurationContainer">
+         <div>
+            <span class="parameterBoxLabel">Required parameters:</span>
+            <div class="configurationBox mandatoryBox">
+               <div class="checkbox_container"
+                    *ngFor="let parameter of requiredParameterConfigurationForSelectedEndpoint">
+                  <input name="first" class="checkbox_input checkboxStyle" type="checkbox" [checked]="parameter.checked"
+                         (change)="changeParameter(parameter, requiredEnum)">
+                  <span class="checkbox_label checkboxStyle" title="{{parameter.tooltip}}"
+                        (click)="changeParameter(parameter, requiredEnum)">{{parameter.label}}</span>
+               </div>
+            </div>
+         </div>
+         <div id="optionalParameterContainer">
+            <span class="parameterBoxLabel">Optional parameters:</span>
+            <div class="configurationBox optionalBox">
+               <div class="checkbox_container"
+                    *ngFor="let parameter of optionalParameterConfigurationForSelectedEndpoint">
+                  <input name="first" class="checkbox_input checkboxStyle" type="checkbox" [checked]="parameter.checked"
+                         (change)="changeParameter(parameter, optionalEnum)">
+                  <span class="checkbox_label checkboxStyle" title="{{parameter.tooltip}}"
+                        (click)="changeParameter(parameter, optionalEnum)">{{parameter.label}}</span>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="submitButton">
+         <button class="submitBtnStyle" (click)="sendRequest()" style="{{submitButtonsStyle}}">
+            <div *ngIf="!isSendRequestButtonLoading">{{sendRequestLabelText}}</div>
+            <i class="fa fa-circle-o-notch fa-spin" *ngIf="isSendRequestButtonLoading"></i>
+         </button>
+         <button class="submitBtnStyle secondSubmitButton" (click)="loadDropIn()" style="{{submitButtonsStyle}}"
+                 *ngIf="selectedEndpoint.name === sessionsEndpointEnum || selectedEndpoint.name === paymentMethodsEndpointEnum">
+            <div *ngIf="!isLoadDropinButtonLoading">{{loadDropinLabelText}}</div>
+            <i class="fa fa-circle-o-notch fa-spin" *ngIf="isLoadDropinButtonLoading"></i>
+         </button>
+         <button class="submitBtnStyle secondSubmitButton" (click)="processPaymentResultCode()"
+                 *ngIf="showProcessPaymentResultCodeButton">
+            <div>{{processPaymentResultCodeButtonLabel}}</div>
+         </button>
+      </div>
+   </div>
+   <div class="rightWindow">
+      <app-console [requestJSON]="requestJson"
+                   [responseJSON]="responseJson"
+                   [showMerchantAccountAutofillButton]="showMerchantAccountAutofillButton"
+                   [showResetButton]="true"
+                   [selectedTab]="selectedTab"
+                   [showAdditionalDropDown]="showPaymentMethodTypeDropdown"
+                   [additionDropDownValues]="getPredefinedPaymentMethods()"
+                   [selectedDropDownValue]="selectedPredefinedPaymentMethod"
+                   [isRequestTabReadonly]="false"
+                   (editorInputEvent)="handleEditorInput($event)"
+                   (autofillMerchantAccountEvent)="autofillMerchantAccount()"
+                   (resetButtonEvent)="resetRequestJson()"
+                   (additionalDropDownEvent)="changePredefinedPaymentMethod($event)"
+                   (selectedTabEvent)="selectedTab=$event">
+      </app-console>
+<!--      <div class="rightBar">-->
+<!--         <div class="btnStyle consoleBtn reqButton" (click)="changeSelectedTab(requestEnum)"-->
+<!--              style="background-color:{{selectedTab === requestEnum ? '#00112c' : '#00235B'}}">Request-->
+<!--         </div>-->
+<!--         <div class="btnStyle consoleBtn resButton" (click)="changeSelectedTab(responseEnum)"-->
+<!--              style="background-color:{{selectedTab === responseEnum ? '#00112c' : '#00235B'}}">Response-->
+<!--         </div>-->
+<!--         <div class="menuBar" *ngIf="showMenuBar">-->
+<!--            <div class="menuButton" (click)="resetRequestJson()" title="Reset JSON" *ngIf="showMenuBar">-->
+<!--               <img id="resetRequestJsonIcon" src="../../assets/icons8-reset-48.png">-->
+<!--            </div>-->
+<!--            <div class="menuButton" (click)="autofillMerchantAccount()" title="Autofill merchant account"-->
+<!--                 *ngIf="showMerchantAccountAutofillButton && showMenuBar">-->
+<!--               <img id="autoFillMerchantAccIcon" src="../../assets/icons8-alternate-48.png">-->
+<!--            </div>-->
+<!--            <app-search-bar-table class="predefinedPaymentMethodDropDown"-->
+<!--                                  *ngIf="showMenuBar && showPaymentMethodTypeDropdown"-->
+<!--                                  (newValueEvent)="changePredefinedPaymentMethod($event)"-->
+<!--                                  [allValues]="getPredefinedPaymentMethods()"-->
+<!--                                  [selectedValue]="selectedPredefinedPaymentMethod"-->
+<!--                                  [inputTextColor]="'white'">-->
+<!--            </app-search-bar-table>-->
+<!--         </div>-->
+<!--      </div>-->
+<!--      <div class="textarea">-->
+<!--         <app-code-editor class="codeEditor"-->
+<!--                      [mode]="'json'"-->
+<!--                      [value]="getEditorValue()"-->
+<!--                      [readonly]="getEditorReadOnlyValue()"-->
+<!--                      (onEditorValueChanged)="handleEditorInput($event)"-->
+<!--                      ngDefaultControl-->
+<!--         ></app-code-editor>-->
+<!--      </div>-->
+   </div>
+   <app-buttonrow [componentName]="'ApiComponent'" [redirectTo]="'/'"></app-buttonrow>
+   <button class="whiteButton configurationButton" (click)="openConfiguration()" *ngIf="showConfigurationButton">
+      Configuration
+   </button>
+</div>
+
+<router-outlet></router-outlet>
+<app-notification #notificationChild></app-notification>
+<app-checkout-window *ngIf="showDropinPopup"
+                     [endpoint]="selectedEndpoint.name"
+                     [value]="responseJson"
+                     [selectedSDKVersion]="selectedSDKVersion"
+                     (closePopupEvent)="showDropinPopup=false"></app-checkout-window>
+<app-configuration-window *ngIf="showConfigurationPopup"
+                          [endpoint]="selectedEndpoint.name"
+                          (closePopupEvent)="showConfigurationPopup=false"></app-configuration-window>

@@ -1,0 +1,62 @@
+<div class="fullScreenLayer" (click)="closePopup($event)"></div>
+<div class="popup">
+   <div class="leftWindow">
+      <div class="header">
+         <div class="menuButton" (click)="redirectTo('dropinConfiguration')" title="Read documentation">
+            <img class="dropinInstanceDocLink" src="../../assets/icons8-document-header-48.png">
+         </div>
+         <span class="configHeader">DropIn instance</span>
+      </div>
+      <div class="codeContainer">
+            <app-code-editor class="codeEditor relative"
+                         [mode]="'typescript'"
+                         [value]="dropinInstanceTopCode"
+                         [lineNumbers]="false"
+                         [readonly]="'nocursor'"
+                         ngDefaultControl
+            ></app-code-editor>
+            <app-code-editor class="codeEditor relative"
+                         [mode]="'json'"
+                         [value]="getDropinInstanceJSON()"
+                         (onEditorValueChanged)="handleDropinInstanceEditorInput($event)"
+                         [lineNumbers]="false"
+                         ngDefaultControl
+            ></app-code-editor>
+            <app-code-editor class="codeEditor relative"
+                         [mode]="'typescript'"
+                         [value]="dropinInstanceBottomCode"
+                         [lineNumbers]="false"
+                         [readonly]="'nocursor'"
+                         ngDefaultControl
+            ></app-code-editor>
+      </div>
+   </div>
+   <div class="rightWindow">
+      <div class="header">
+         <div class="menuButton" (click)="redirectTo('configurationObject')" title="Read documentation">
+            <img class="dropinInstanceDocLink" src="../../assets/icons8-document-header-48.png">
+         </div>
+         <span class="configHeader">Configuration object</span>
+         <div id="closeButton" (click)="closePopup()">
+            <p id="closeButtonIcon">&#x2715;</p>
+         </div>
+      </div>
+      <div class="rightBar">
+         <div class="textarea">
+            <app-code-editor class="codeEditor"
+                         [mode]="'json'"
+                         [value]="getEditorValue()"
+                         [lineNumbers]="false"
+                         (onEditorValueChanged)="handleConfigurationEditorInput($event)"
+                         ngDefaultControl
+            ></app-code-editor>
+         </div>
+      </div>
+      <div class="buttonContainer" *ngIf="showSaveButton">
+         <button class="whiteButton saveJSON" (click)="saveJson()"
+                 style="background-color: {{saveButtonBackgroundColor}}; color: {{saveButtonColor}}">
+            {{jsonSaveButtonLabel}}
+         </button>
+      </div>
+   </div>
+</div>

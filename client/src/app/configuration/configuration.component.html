@@ -1,0 +1,68 @@
+<div class="background" (mousedown)="closePopup($event)">
+   <div class="popup">
+      <div class="configurationTopRow">
+         <p>Configuration</p>
+         <div class="close" (click)="closePopup()">&#215;</div>
+      </div>
+      <form [formGroup]="configForm" (ngSubmit)="savePopup()">
+         <div class="grid gap-6 mb-6 lg:grid-cols-2">
+            <div class="firstRow">
+               <div class="row firstRowWidth">
+                  <label for="countryCode"
+                         class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Country
+                     </label>
+                  <select formControlName="countryCode" id="countryCode"
+                          class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg">
+                     <option *ngFor="let country of configurationService.getCountryJson()"
+                             [ngValue]="country.code">{{country.name}}
+                     </option>
+                  </select>
+               </div>
+               <div class="row marginLeft firstRowWidth">
+                  <label for="languageCode"
+                         class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Language
+                     code</label>
+                  <select formControlName="languageCode" id="languageCode"
+                          class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg">
+                     <option *ngFor="let language of configurationService.getLanguageJson()"
+                             [ngValue]="language.languageCode">{{language.languageCode}} / {{language.language}}
+                     </option>
+                  </select>
+               </div>
+            </div>
+            <div class="row">
+               <label for="value" class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Amount</label>
+               <div class="amount">
+                  <input type="text" formControlName="value" id="value" (input)="handleValueInput($event)"
+                         class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg"
+                         placeholder="1000" required>
+                  <select formControlName="currency" id="currency"
+                          class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg">
+                     <option *ngFor="let currency of configurationService.getCurrencyJson()"
+                             [ngValue]="currency.isoCode">{{currency.symbol}} / {{currency.currency}}
+                     </option>
+                  </select>
+                  <!--            <input type="text" formControlName="currency" id="currency" class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg" placeholder="EUR" required>-->
+               </div>
+            </div>
+            <div class="row">
+               <label for="merchantAccount"
+                      class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Merchant account</label>
+               <input readonly type="text" formControlName="merchantAccount" id="merchantAccount"
+                      class="greyInput inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg"
+                      placeholder="" title="Has to be changed on server side!">
+            </div>
+            <div class="row">
+               <label for="returnUrl"
+                      class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">ReturnUrl</label>
+               <input readonly type="text" formControlName="returnUrl" id="returnUrl"
+                      class="greyInput inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg"
+                      placeholder="https://www.adyen.com" title="Has to be changed on server side!">
+            </div>
+         </div>
+         <div class="configurationBottomRow">
+            <button type="submit" class="btnSubmit">Save</button>
+         </div>
+      </form>
+   </div>
+</div>

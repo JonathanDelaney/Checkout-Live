@@ -1,0 +1,478 @@
+.rightWindow {
+    position: fixed;
+    height: 100%;
+    width: 50%;
+    right: 0;
+    z-index: 25;
+}
+
+.rightBar {
+    right: 0;
+    width: 100%;
+    background-color: #00112c;
+    overflow: auto;
+    height: 100%;
+}
+
+.btnStyle {
+    align-items: center;
+    /*background-color: #00112c;*/
+    background: transparent;
+    color: #ffffff;
+    display: inline-flex;
+    flex: 1 1 auto;
+    font-family: Inter, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 1;
+    margin: 0;
+    outline: none;
+    padding: 1rem 1.2rem;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 50%;
+}
+
+.btnStyle:hover {
+    cursor: pointer;
+    /*border-bottom: 3px solid white;*/
+    background-color: #001d4d;
+}
+
+.consoleBtn {
+    width: 50%;
+}
+
+.reqButton {
+    border-bottom-right-radius: 15px;
+}
+
+.resButton {
+    border-bottom-left-radius: 15px;
+}
+
+
+.leftWindows {
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    background-color: transparent;
+    /*border-bottom-right-radius: 50px;*/
+    /*border-top-right-radius: 50px;*/
+    /*box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;*/
+    z-index: 24;
+}
+
+.textarea {
+    height: calc(100% - 111px);
+    width: 100%;
+    background-color: #00112c;
+    overflow: auto;
+    position: absolute;
+    top: 111px;
+}
+
+.textarea::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+.textarea::-webkit-scrollbar-track {
+    background-color: #00112c;
+}
+.textarea::-webkit-scrollbar-thumb {
+    background-color: white ;
+    border-radius: 20px;
+    border: 3px solid #00112c;
+}
+
+.textarea::-webkit-scrollbar-corner {
+    background: rgba(0,0,0,0);
+}
+
+.codeEditor {
+    padding: 30px;
+    position: absolute;
+}
+
+#svg {
+    position: absolute;
+    bottom: 0px;
+    z-index: -5;
+}
+
+#notificationBar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: Inter, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+#invalidJSONnotification {
+    position: absolute;
+    bottom: 40px;
+    z-index: 9;
+    color: rgb(234, 36, 41);
+}
+
+.submitBtnStyle {
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, .1) 0 6px 20px;
+    box-sizing: border-box;
+    /*background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);*/
+    background-color: #3b5998;
+    color: white;
+    cursor: pointer;
+    display: inline-flex;
+    flex: 1 1 auto;
+    font-family: Inter, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 1;
+    margin: 0;
+    outline: none;
+    padding: 1rem 1.2rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow 0.1s ease-out 0ms;
+    white-space: nowrap;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.submitBtnStyle:hover {
+    /*border: 3px solid black;*/
+    box-shadow: #3b5998 0 0 0 3px, transparent 0 0 0 0;
+}
+
+#submitButton {
+    position: absolute;
+    display: flex;
+    z-index: 9;
+    width: 100%;
+    bottom: 120px;
+    padding-left: 20px;
+    padding-right: 20px
+}
+
+#searchBarBody {
+    position: absolute;
+    width: 100%;
+    z-index: 9;
+    top: 90px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.versionDropdown {
+    background: #fff;
+    border: 1px solid #b9c4c9;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    color: #00112c;
+    font-size: 1em;
+    height: 42px;
+    line-height: 20px;
+    outline: 0;
+    padding: 7px 24px 7px 12px;
+    text-decoration: none;
+    transition: border .2s ease-out, box-shadow .2s ease-out;
+    -webkit-user-select: none;
+    user-select: none;
+    width: 150px;
+}
+
+.sdkversion {
+    width: 150px;
+    border-radius: 0;
+}
+
+.text-sm {
+    font-size: 1.1rem;
+    line-height: 1.45rem;
+}
+
+.searchBarTable {
+    z-index: 12;
+    position: relative;
+    width: 80%;
+    background-color: white;
+    /*box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;*/
+    box-shadow: 0 2px 7px rgb(0 15 45 / 30%);
+    max-height: 150px;
+    overflow: auto;
+    border-radius: 6px;
+}
+
+#table {
+    width: 100%;
+    padding: 0;
+    z-index: 11;
+    display: block;
+    margin: 0;
+}
+
+#tableDiv {
+    z-index: 11;
+}
+
+
+.configurationBox {
+    position: initial;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto-fill);
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: calc(100% - 40px);
+    border: 1px solid #e7e7e7;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.configurationContainer {
+    position: absolute;
+    margin-top: 160px;
+    width: 100%;
+    height: calc(100% - 350px);
+}
+
+.optionalBox {
+    /*height: calc(100% - 110px);*/
+    max-height: 100%
+}
+
+.mandatoryBox {
+    /*height: 90px*/
+    max-height: 90px
+}
+
+#optionalParameterContainer {
+    height: calc(100% - 150px);
+}
+
+.parameterBoxLabel {
+    margin-left: 20px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: -0.5px;
+    line-height: 1;
+}
+
+.checkbox_container {
+    position: relative;
+    display: block;
+
+}
+
+.checkbox_input {
+    position: absolute;
+}
+
+.checkbox_label {
+    color: black;
+    display: flex;
+    font-size: .81em;
+    font-weight: 400;
+    line-height: 19px;
+    padding-left: 24px;
+    -webkit-user-select: none;
+}
+
+.checkboxStyle:hover {
+    cursor: pointer;
+}
+
+#apiHeader {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    justify-content: center;
+    height: 40px;
+}
+
+#headerImg {
+    width: 180px;
+    margin-top: 50px;
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.secondSubmitButton {
+    margin-left: 40px;
+}
+
+.json-key {
+    color: blue;
+    margin-left: 8px;
+    font-family: monospace;
+}
+
+.value {
+    font-family: monospace;
+}
+
+.prettyJsonBox {
+    position: initial;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: calc(100vh - 111px);
+    min-width: 500px;
+    /*max-width: 800px;*/
+    background-color: #00112c;
+    padding: 30px;
+    overflow: auto;
+    border: none;
+    z-index: -1;
+    padding-top: 30px;
+    padding-bottom: 100px;
+    outline: none;
+    margin: 0;
+}
+
+.specialButtons {
+    position: absolute;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: transparent 0 0 0 3px, rgb(18 18 18 / 10%) 0 6px 20px;
+    box-sizing: border-box;
+    color: #121212;
+    cursor: pointer;
+    display: inline-flex;
+    flex: 1 1 auto;
+    font-family: Inter, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 1;
+    margin: 0;
+    outline: none;
+    padding: 1rem 1.2rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s;
+    white-space: nowrap;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 230px;
+    z-index: 20;
+}
+
+.editJSON {
+    position: initial;
+    margin-top: 10px
+}
+
+.editJSON:hover {
+    box-shadow: #ffffff 0 0 0 3px, transparent 0 0 0 0;
+}
+
+.configurationButton {
+    position: fixed;
+    z-index: 24;
+    bottom: 40px;
+    left: 300px;
+}
+
+.configurationButton:hover {
+    box-shadow: #000000 0 0 0 3px, transparent 0 0 0 0;
+}
+
+.jsonStyle {
+    font-family: menlo, consolas, monospace;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1.4em;
+    font-size: 0.9rem;
+}
+
+.selectionContainer {
+    display: flex;
+}
+
+.menuBar {
+    left: 0px;
+    padding: 10px;
+    width: 100%;
+    height: 60px;
+    display: inline-flex;
+    align-items: center;
+    border-bottom: 1px solid #ffffff38;
+    background-color: #00112c;
+}
+
+.menuButton {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    margin-right: 7px;
+    margin-left: 7px;
+    align-items: center;
+    border-radius: 50px;
+    justify-content: center;
+}
+
+#autoFillMerchantAccIcon {
+    -webkit-filter: brightness(0) invert(1);
+    transform: scale(1.5, 1.5);
+    user-select: none;
+    height: 20px;
+}
+
+#resetRequestJsonIcon {
+    -webkit-filter: brightness(0) invert(1);
+    transform: scale(1.5, 1.5);
+    user-select: none;
+    height: 16px;
+}
+
+
+.menuButton:hover {
+    cursor: pointer;
+    background-color: #001d4d;
+}
+
+.endpointDropDown {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #b9c4c9;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    outline: none;
+}
+
+.predefinedPaymentMethodDropDown {
+    width: 400px;
+    height: 40px;
+    background: #00112c;
+    border: 2px solid white;
+    border-radius: 6px;
+    /* border: none; */
+    outline: none;
+}

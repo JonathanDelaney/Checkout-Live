@@ -1,0 +1,5 @@
+import "cypress-iframe"
+import "./checkEndpoints.cy"
+import "./sessions.cy"
+import "./paymentMethods.cy"
+import "./payments.cy"

@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-print-json@1.2/dist/pretty-print-json.dark-mode.css">
+<script src="https://cdn.jsdelivr.net/npm/pretty-print-json@1.2/dist/pretty-print-json.min.js"></script>
+
+
+<div class="parentWindow">
+   <div class="leftWindow"></div>
+   <div class="leftBar">
+      <div class="btnStyle" (click)="changeConfigWindow('createLink')"
+           style="border-bottom:{{showedConfigWindow === 'createLink' ? '3px solid #5643CC' : ''}}">Create link
+      </div>
+      <div class="btnStyle" (click)="changeConfigWindow('expireLink')"
+           style="border-bottom:{{showedConfigWindow === 'expireLink' ? '3px solid #5643CC' : ''}}">Expire link
+      </div>
+   </div>
+   <div class="selectedTabLabel">
+      <p>{{getLabel()}}</p>
+   </div>
+   <div class="leftBarParamGroup">
+      <div class="parameters" *ngIf="showedConfigWindow === 'createLink'">
+         <form [formGroup]="pblForm" (ngSubmit)="savePblConfig()">
+            <div class="grid gap-6 mb-6 lg:grid-cols-2">
+               <div>
+                  <label for="amount"
+                         class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Amount</label>
+                  <input type="text" formControlName="amount" (input)="handleValueInput($event)" id="amount"
+                         class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg"
+                         placeholder="" required>
+               </div>
+               <div>
+                  <label for="description"
+                         class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
+                  <input type="text" formControlName="description" id="description"
+                         class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg"
+                         placeholder="" required>
+               </div>
+               <button type="submit" class="submitBtnStyle group">Create link</button>
+            </div>
+         </form>
+      </div>
+      <div class="parameters" *ngIf="showedConfigWindow === 'expireLink'">
+         <form [formGroup]="pblExpireForm" (ngSubmit)="expireLink()">
+            <div class="grid gap-6 mb-6 lg:grid-cols-2">
+               <div>
+                  <label for="linkId"
+                         class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Link
+                     ID</label>
+                  <input type="text" formControlName="linkId" id="linkId"
+                         class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg"
+                         placeholder="" required>
+               </div>
+               <button type="submit" class="submitBtnStyle group">Expire link</button>
+            </div>
+         </form>
+      </div>
+   </div>
+   <div class="rightWindow">
+      <app-console [requestJSON]="pblRequestJson"
+                   [responseJSON]="pblResponseJson"
+                   [selectedTab]="selectedTab"
+                   (selectedTabEvent)="selectedTab=$event">
+      </app-console>
+   </div>
+   <app-buttonrow [componentName]="'PaybylinkComponent'" [redirectTo]="'/'" (updateValues)="update()"></app-buttonrow>
+</div>

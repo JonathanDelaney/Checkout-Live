@@ -1,0 +1,10 @@
+<div class="notification" *ngIf="showNotification" [style.margin-top]="offsetY">
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css">
+   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+   <div class="item">
+  <span class="live-indicator" [style.background-color]="statusColor">
+          <i class="fa fa-circle blink" aria-hidden="true"></i>{{notificationStatus}}
+          </span>
+   </div>
+   <p class="item notificationText">{{notificationText}}</p>
+</div>

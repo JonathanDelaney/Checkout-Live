@@ -1,0 +1,9 @@
+<div class="components-container">
+   <button class="btnComponentsStyle btnComponentsAlign" [routerLink]="'card'">Checkout with Card</button>
+   <button class="btnComponentsStyle btnComponentsAlign" [routerLink]="'klarna'">Checkout with Klarna</button>
+   <button class="btnComponentsStyle btnComponentsAlign" [routerLink]="'giropay'">Checkout with Giropay</button>
+   <button class="btnComponentsStyle btnComponentsAlign" [routerLink]="'alipay'">Checkout with Alipay</button>
+   <button class="btnComponentsStyle btnComponentsAlign" [routerLink]="'paypal'">Checkout with PayPal</button>
+</div>
+<app-buttonrow [componentName]="'ComponentsComponent'" [redirectTo]="'/'"></app-buttonrow>
+<router-outlet></router-outlet>

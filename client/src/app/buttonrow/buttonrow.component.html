@@ -1,0 +1,43 @@
+<div class="buttonRow" style="background-color: {{backgroundColor}}">
+   <button class="whiteButton btnAlign" routerLink="{{redirectTo}}" *ngIf="buttonConfig.back">Back</button>
+   <button class="whiteButton btnAlign btnSampleCards" (click)="openReversalNotification()"
+           *ngIf="buttonConfig.reversal">
+      Reversals
+   </button>
+   <button class="whiteButton btnAlign btnSampleCards" (click)="toggleSampleCardsPopup()"
+           *ngIf="buttonConfig.sampleCards">
+      Sample cards
+   </button>
+</div>
+<div class="settings" *ngIf="buttonConfig.settings">
+   <img id="wheel" src="../../assets/icons8-gear-96.png" (click)="toggleConfigPopup()"
+        *ngIf="buttonConfig.settingsColor === 'black'">
+   <img id="wheelInvert" src="../../assets/icons8-gear-96.png" (click)="toggleConfigPopup()"
+        *ngIf="buttonConfig.settingsColor === 'white'">
+</div>
+<app-configuration *ngIf="!!showConfigurationPopup" (closePopupEvent)="closePopup()"
+                   (updateValues)="updateValuesFunc()"></app-configuration>
+
+<div class="sampleCards" *ngIf="showSampleCardsPopup">
+   <div class="sampleCardTabBar">
+      <div class="sampleCardTabBarItem" (click)="changeSelectedSampleCard(0)"
+           style="border-bottom:{{selectedSampleCardPaymentMethod === 0 ? '4px solid white' : ''}}">
+         {{sampleCards[0].paymentMethodVariant}}
+      </div>
+      <div class="sampleCardTabBarItem" (click)="changeSelectedSampleCard(1)"
+           style="border-bottom:{{selectedSampleCardPaymentMethod === 1 ? '4px solid white' : ''}}">
+         {{sampleCards[1].paymentMethodVariant}}
+      </div>
+      <div class="sampleCardTabBarItem" (click)="changeSelectedSampleCard(2)"
+           style="border-bottom:{{selectedSampleCardPaymentMethod === 2 ? '4px solid white' : ''}}">
+         {{sampleCards[2].paymentMethodVariant}}
+      </div>
+   </div>
+   <div class="field">
+      <p id="number" (click)="copyTextAndClose()">{{sampleCards[selectedSampleCardPaymentMethod].cardNumber}}</p>
+   </div>
+
+</div>
+
+<div class="fullScreenLayer" *ngIf="showSampleCardsPopup" (click)="toggleSampleCardsPopup()"></div>
+

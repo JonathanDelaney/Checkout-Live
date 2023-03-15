@@ -1,0 +1,144 @@
+<div class="parentWindow">
+   <div class="leftWindow"></div>
+   <div class="leftBar">
+      <div class="btnStyle" (click)="changeConfigWindow('capture')"
+           style="border-bottom:{{showedConfigWindow === 'capture' ? '3px solid #5643CC' : ''}}">Capture
+      </div>
+      <div class="btnStyle" (click)="changeConfigWindow('cancel')"
+           style="border-bottom:{{showedConfigWindow === 'cancel' ? '3px solid #5643CC' : ''}}">Cancel
+      </div>
+      <div class="btnStyle" (click)="changeConfigWindow('refund')"
+           style="border-bottom:{{showedConfigWindow === 'refund' ? '3px solid #5643CC' : ''}}">Refund
+      </div>
+      <div class="btnStyle" (click)="changeConfigWindow('reversal')"
+           style="border-bottom:{{showedConfigWindow === 'reversal' ? '3px solid #5643CC' : ''}}">Reversal
+      </div>
+   </div>
+   <div class="selectedTabLabel">
+      <p>{{getLabel()}}</p>
+   </div>
+   <div class="leftBarParamGroup">
+      <div class="parameters" *ngIf="showedConfigWindow === 'capture'">
+         <form [formGroup]="captureForm" (ngSubmit)="sendModification('capture')">
+            <div class="grid gap-6 mb-6 lg:grid-cols-2">
+               <div>
+                  <label for="paymentPspReference"
+                         class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">PSP
+                     reference</label>
+                  <input type="text" formControlName="paymentPspReference" id="paymentPspReference"
+                         class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg"
+                         placeholder="" required>
+               </div>
+               <div>
+                  <label for="amount"
+                         class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Amount</label>
+                  <input type="text" formControlName="amount" id="amount" (input)="handleValueInput($event)"
+                         class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg"
+                         placeholder="" required>
+               </div>
+               <div>
+                  <label for="reference"
+                         class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Reference</label>
+                  <input type="text" formControlName="reference" id="reference"
+                         class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg"
+                         placeholder="" required>
+               </div>
+               <button type="submit" class="submitBtnStyle group">Capture payment</button>
+            </div>
+         </form>
+      </div>
+      <div class="parameters" *ngIf="showedConfigWindow === 'cancel'">
+         <form [formGroup]="cancelForm" (ngSubmit)="sendModification('cancel')">
+            <div class="grid gap-6 mb-6 lg:grid-cols-2">
+               <div>
+                  <label for="paymentPspReferenceCancel"
+                         class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">PSP
+                     reference</label>
+                  <input type="text" formControlName="paymentPspReference" id="paymentPspReferenceCancel"
+                         class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg"
+                         placeholder="" required>
+               </div>
+               <div>
+                  <label for="referenceCancel"
+                         class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Reference</label>
+                  <input type="text" formControlName="reference" id="referenceCancel"
+                         class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg"
+                         placeholder="" required>
+               </div>
+               <button type="submit" class="submitBtnStyle group">Cancel payment</button>
+            </div>
+         </form>
+      </div>
+      <div class="parameters" *ngIf="showedConfigWindow === 'refund'">
+         <form [formGroup]="refundForm" (ngSubmit)="sendModification('refund')">
+            <div class="grid gap-6 mb-6 lg:grid-cols-2">
+               <div>
+                  <label for="paymentPspReferenceRefund"
+                         class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">PSP
+                     reference</label>
+                  <input type="text" formControlName="paymentPspReference" id="paymentPspReferenceRefund"
+                         class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg"
+                         placeholder="" required>
+               </div>
+               <div>
+                  <label for="amountRefund"
+                         class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Amount</label>
+                  <input type="text" formControlName="amount" id="amountRefund" (input)="handleValueInput($event)"
+                         class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg"
+                         placeholder="" required>
+               </div>
+               <div>
+                  <label for="referenceRefund"
+                         class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Reference</label>
+                  <input type="text" formControlName="reference" id="referenceRefund"
+                         class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg"
+                         placeholder="" required>
+               </div>
+               <button type="submit" class="submitBtnStyle group">Refund payment</button>
+            </div>
+         </form>
+      </div>
+      <div class="parameters" *ngIf="showedConfigWindow === 'reversal'">
+         <form [formGroup]="reversalForm" (ngSubmit)="sendModification('reversal')">
+            <div class="grid gap-6 mb-6 lg:grid-cols-2">
+               <div>
+                  <label for="paymentPspReferenceReversal"
+                         class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">PSP
+                     reference</label>
+                  <input type="text" formControlName="paymentPspReference" id="paymentPspReferenceReversal"
+                         class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg"
+                         placeholder="" required>
+               </div>
+               <div>
+                  <label for="referenceReversal"
+                         class="inputLabels block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Reference</label>
+                  <input type="text" formControlName="reference" id="referenceReversal"
+                         class="inputFields bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg"
+                         placeholder="" required>
+               </div>
+               <button type="submit" class="submitBtnStyle group">Reversal payment</button>
+            </div>
+         </form>
+      </div>
+   </div>
+   <div class="rightWindow">
+      <app-console [requestJSON]="pblRequest"
+                   [responseJSON]="pblResponse"
+                   [selectedTab]="selectedTab"
+                   (selectedTabEvent)="selectedTab=$event">
+      </app-console>
+<!--      <div class="rightBar">-->
+<!--         <div class="btnStyle pblBtn" (click)="changeReqResWindow('request')"-->
+<!--              style="border-bottom:{{showedReqResWindow === 'request' ? '3px solid #5643CC' : ''}}">Request-->
+<!--         </div>-->
+<!--         <div class="btnStyle pblBtn" (click)="changeReqResWindow('response')"-->
+<!--              style="border-bottom:{{showedReqResWindow === 'response' ? '3px solid #5643CC' : ''}}">Response-->
+<!--         </div>-->
+<!--         <div class="textarea">-->
+<!--            <textarea class="pblTextarea" readonly *ngIf="showedReqResWindow === 'request'">{{pblRequest}}</textarea>-->
+<!--            <textarea class="pblTextarea" readonly *ngIf="showedReqResWindow === 'response'">{{pblResponse}}</textarea>-->
+<!--         </div>-->
+<!--      </div>-->
+   </div>
+   <app-buttonrow [componentName]="'PaybylinkComponent'" [redirectTo]="'/'" (updateValues)="update()"></app-buttonrow>
+</div>

@@ -1,0 +1,25 @@
+<div id="fullWindowLayer" (click)="closeSearchBarTable()"
+     *ngIf="showSearchBarTable"></div>
+<input id="{{inputID}}"
+       class="searchBarLabel text-sm"
+       type="text" [ngClass]="{
+                  'inputPlaceholderWhite': inputTextColor === 'white',
+                  'inputPlaceholderBlack': inputTextColor !== 'white'}"
+       style="color: {{inputTextColor}}"
+       placeholder="Search..."
+       value="{{selectedValue.name}}"
+       (input)="handleTableSearchInput($event)"
+       (click)="openSearchBarTable()">
+<div class="searchBarTable" *ngIf="showSearchBarTable">
+   <ul id="table">
+      <div id="rowBackgroundColor" *ngFor="let value of filteredValuesJSON">
+         <li class="searchBarTableHeaderGroup" *ngIf="showSearchTableGroup(value)">{{value.group}}
+         </li>
+         <li class="searchBarTableEntry"
+             (click)="changeSelectedValue(value)">
+            {{value.name}}
+         </li>
+      </div>
+   </ul>
+</div>
+

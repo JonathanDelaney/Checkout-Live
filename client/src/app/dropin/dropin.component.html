@@ -1,0 +1,12 @@
+<div class="dropinContainer">
+  <button  class="btnStyle btnAlign" [routerLink]="'sessions'">/sessions</button>
+  <button  class="btnStyle btnAlign" [routerLink]="'payments'">/paymentMethods</button>
+</div>
+
+<app-buttonrow [componentName]="'DropinComponent'" [redirectTo]="'/'"></app-buttonrow>
+<router-outlet></router-outlet>
+<app-notification #notificationChild></app-notification>
+
+
+
+
