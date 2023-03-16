@@ -5,6 +5,6 @@
   "packages": {},
   "scripts": {
     "start": "node ./server/app",
-    "start": "ng serve --proxy-config proxy.conf.json"
+    "start": "ng serve --proxy-config ./client/proxy.conf.json"
   }
 }
