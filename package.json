@@ -1,10 +1,11 @@
 {
-  "name": "checkout-live",
+  "name": "checkout-components-sample-code",
   "lockfileVersion": 2,
   "requires": true,
   "packages": {},
   "scripts": {    
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./server/app"
+    "start": "node ./server/app",
+    "devserver": "node ./server/node/index.js"
   }
 }
