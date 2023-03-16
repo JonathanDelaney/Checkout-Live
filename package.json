@@ -3,7 +3,8 @@
   "lockfileVersion": 2,
   "requires": true,
   "packages": {},
-  "scripts": {    "test": "echo \"Error: no test specified\" && exit 1",
+  "scripts": {    
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node client/app"
   }
 }
