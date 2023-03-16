@@ -4,7 +4,8 @@
   "requires": true,
   "packages": {},
   "scripts": {
-    "start": "node ./server/app",
-    "start": "ng serve --proxy-config ./client/proxy.conf.json"
+      "start": "npm run devserver",
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "devserver": "node ./server/node/index.js"
   }
 }
