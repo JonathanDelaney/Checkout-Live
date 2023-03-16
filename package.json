@@ -4,6 +4,7 @@
   "requires": true,
   "packages": {},
   "scripts": {
-    "start": "node ./server/app"
+    "start": "node ./server/app",
+    "start": "ng serve --proxy-config proxy.conf.json"
   }
 }
