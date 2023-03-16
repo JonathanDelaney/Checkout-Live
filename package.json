@@ -3,9 +3,7 @@
   "lockfileVersion": 2,
   "requires": true,
   "packages": {},
-  "scripts": {
-      "start": "npm run devserver",
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "devserver": "node ./server/node/index.js"
+  "scripts": {    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node client/app"
   }
 }
