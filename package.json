@@ -1,0 +1,30 @@
+{
+  "name": "checkout-components-sample-code",
+  "lockfileVersion": 2,
+  "requires": true,
+  "packages": {},
+  {
+  "scripts": {    
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./server/app",
+    "devserver": "node ./server/node/index.js"
+    }
+  },
+  "description": "",
+  "main": "./server/app.js",
+  "engines": {
+    "node": ">=15.0.0 || <=17.0.0"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@adyen/api-library": "^12.1.0",
+    "axios": "^0.27.2",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "request": "^2.88.2",
+    "socket.io": "^4.5.3",
+    "uuidv4": "^6.1.1"
+  }
+}
