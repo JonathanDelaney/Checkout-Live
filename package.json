@@ -9,7 +9,7 @@
     "devserver": "node ./server/node/index.js"
   },
   "description": "",
-  "main": "./server/app.js",
+  "main": "./client/app",
   "engines": {
     "node": ">=15.0.0 || <=17.0.0"
   },
