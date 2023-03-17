@@ -1,6 +1,6 @@
 {
   "/api/*": {
-    "target": "https://checkout-live.herokuapp.com/",
+    "target": "https://checkout-live.herokuapp.com",
     "secure": false,
     "logLevel": "debug",
     "changeOrigin": true
